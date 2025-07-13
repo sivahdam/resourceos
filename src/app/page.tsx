@@ -1,37 +1,28 @@
-// 'use client';
+// app/page.tsx
+import HomeClient from './home/home-client';
 
-// import { useEffect } from 'react';
-// import Image from 'next/image';
+export const metadata = {
+  title: 'Resource OS – Learning Made Real',
+  description:
+    'Resource OS is a modern learning platform for college and pre-college students. Get academic tools, skill-building resources, and join a thriving student community.',
+  openGraph: {
+    title: 'Resource OS – Learning Made Real',
+    description:
+      'Join a powerful platform for students. Study smarter, build skills, and connect with like-minded learners.',
+    url: 'https://resourceos.example.com',
+    siteName: 'Resource OS',
+    images: [
+      {
+        url: '/preview.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Resource OS Preview',
+      },
+    ],
+    type: 'website',
+  },
+};
 
-// export default function Home() {
-//   useEffect(() => {
-//     // Just to ensure mailerlite picks up dynamic content if needed
-//     if (typeof window !== 'undefined' && (window as any).ml) {
-//       (window as any).ml('form', 'gNY3ke'); // optional
-//     }
-//   }, []);
-
-//   return (
-//     <main className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-8">
-//       <Image src={"/logo-black.png"} alt={''} width={400} height={400} className="invert"></Image>
-//       {/* ✅ Embedded form container */}
-//       <div className="ml-embedded" data-form="gNY3ke"></div>
-//     </main>
-//   );
-// }
-
-import MailerLiteEmbed from './components/MailerLiteEmbed';
-export default function Home() {
-  return (
-    <main className="min-h-screen flex flex-col items-center justify-center p-8">
-    <img src="/logo-black.png" alt="" width="400" height="400" className="invert" />
-    {/* <Image src={"/logo-black.png"} alt={''} width={400} height={400} className="invert"></Image> */}
-      {/* 👉 the working inline form */}
-      <MailerLiteEmbed />
-      <br></br>
-      <h1 className="text-4xl font-semibold mb-2">Comming Soon</h1>
-      <br></br>
-      <p>© 2025 Resource OS. All Rights Reserved.</p>
-    </main>
-  );
+export default function Page() {
+  return <HomeClient />;
 }
